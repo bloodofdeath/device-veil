@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Device Veil</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="panel">
+      <header class="header">
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3 19 6v5c0 4.8-2.9 8-7 10-4.1-2-7-5.2-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+            <path d="m9 12 2 2 4-4" stroke="#59dda6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="title-group">
+          <div class="title-row">
+            <h1>Device Veil</h1>
+            <span class="badge">v1</span>
+          </div>
+          <p class="subtitle">Защита цифрового отпечатка</p>
+        </div>
+      </header>
+
+      <section class="status-card" aria-live="polite">
+        <span id="status-indicator" class="status-indicator"></span>
+        <div class="card-copy">
+          <p id="status-title" class="status-title">Загрузка…</p>
+          <p id="status-caption" class="status-caption">Настройки защиты</p>
+        </div>
+        <label class="switch" aria-label="Включить защиту">
+          <input id="enabled" type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </section>
+
+      <section id="site-card" class="site-card hidden">
+        <div class="card-copy">
+          <p class="site-label">Текущий сайт</p>
+          <p id="site-host" class="site-host">—</p>
+        </div>
+        <button id="site-toggle" class="site-btn" type="button">Пауза</button>
+      </section>
+
+      <section id="modules-section" class="modules" aria-label="Модули защиты">
+        <label class="module-row">
+          <div class="module-copy">
+            <span class="module-title">Платформа и железо</span>
+            <span class="module-desc">OS, CPU, RAM, Client Hints, цветность</span>
+          </div>
+          <span class="switch small">
+            <input id="mask-navigator" type="checkbox">
+            <span class="slider"></span>
+          </span>
+        </label>
+        <label class="module-row">
+          <div class="module-copy">
+            <span class="module-title">Графика WebGL</span>
+            <span class="module-desc">Обобщение вендора и модели GPU</span>
+          </div>
+          <span class="switch small">
+            <input id="mask-webgl" type="checkbox">
+            <span class="slider"></span>
+          </span>
+        </label>
+      </section>
+
+      <div id="reload-bar" class="reload-bar hidden">
+        <span>Обновите вкладку для полного применения</span>
+        <button id="reload-btn" class="reload-btn" type="button">Обновить</button>
+      </div>
+
+      <div class="details">
+        <p class="note">Это не VPN и не шифрование: IP-адрес и сетевые данные расширение не скрывает.</p>
+      </div>
+      <footer>Работает локально · без телеметрии</footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -18,7 +18,7 @@
         <div class="title-group">
           <div class="title-row">
             <h1>Device Veil</h1>
-            <span class="badge">v1</span>
+            <span class="badge">v1.1</span>
           </div>
           <p class="subtitle">Защита цифрового отпечатка</p>
         </div>
@@ -45,23 +45,57 @@
       </section>
 
       <section id="modules-section" class="modules" aria-label="Модули защиты">
+        <div class="module-group">
+          <label class="module-row">
+            <div class="module-copy">
+              <span class="module-title">Экран и разрешение</span>
+              <span class="module-desc">Размер экрана, панель задач, масштаб DPR</span>
+            </div>
+            <span class="switch small">
+              <input id="mask-screen" type="checkbox">
+              <span class="slider"></span>
+            </span>
+          </label>
+          <div id="preset-row" class="preset-row">
+            <label for="screen-preset" class="preset-label">Профиль:</label>
+            <select id="screen-preset" class="preset-select">
+              <option value="1920x1080">1920 × 1080 (DPR 1x · Full HD)</option>
+              <option value="1536x864">1536 × 864 (DPR 1.25x · Ноутбук)</option>
+              <option value="2560x1440">2560 × 1440 (DPR 1x · QHD)</option>
+              <option value="1366x768">1366 × 768 (DPR 1x · HD)</option>
+            </select>
+          </div>
+        </div>
+
         <label class="module-row">
           <div class="module-copy">
-            <span class="module-title">Платформа и железо</span>
-            <span class="module-desc">OS, CPU, RAM, Client Hints, цветность</span>
+            <span class="module-title">Платформа и периферия</span>
+            <span class="module-desc">8 ядер, 8 ГБ, языки, сеть, батарея, квота</span>
           </div>
           <span class="switch small">
             <input id="mask-navigator" type="checkbox">
             <span class="slider"></span>
           </span>
         </label>
+
         <label class="module-row">
           <div class="module-copy">
-            <span class="module-title">Графика WebGL</span>
-            <span class="module-desc">Обобщение вендора и модели GPU</span>
+            <span class="module-title">Графика WebGL / WebGPU</span>
+            <span class="module-desc">Массовый профиль Intel UHD 630 (ANGLE)</span>
           </div>
           <span class="switch small">
             <input id="mask-webgl" type="checkbox">
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <label class="module-row">
+          <div class="module-copy">
+            <span class="module-title">Canvas, Audio и шрифты</span>
+            <span class="module-desc">Сессионный шум и базовые шрифты Windows</span>
+          </div>
+          <span class="switch small">
+            <input id="mask-fingerprint" type="checkbox">
             <span class="slider"></span>
           </span>
         </label>
@@ -73,7 +107,7 @@
       </div>
 
       <div class="details">
-        <p class="note">Это не VPN и не шифрование: IP-адрес и сетевые данные расширение не скрывает.</p>
+        <p class="note">Это не VPN: IP-адрес, часовой пояс и HTTP-заголовки расширение не скрывает.</p>
       </div>
       <footer>Работает локально · без телеметрии</footer>
     </main>

@@ -1,8 +1,8 @@
 {
   "name": "device-veil",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "Browser extension that reduces device fingerprinting precision for Navigator, Client Hints, and WebGL.",
+  "description": "Browser extension (MV3) that reduces device fingerprinting across Screen, Navigator, Client Hints, WebGL/WebGPU, Canvas, Audio, and Fonts.",
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs"

@@ -2,7 +2,10 @@
   const DEFAULT_SETTINGS = {
     enabled: true,
     maskNavigator: true,
+    maskScreen: true,
+    screenPreset: "1920x1080",
     maskWebGL: true,
+    maskFingerprint: true,
     disabledHosts: []
   };
   const MESSAGE_SOURCE = "device-veil-settings";
@@ -21,7 +24,10 @@
     return {
       enabled: merged.enabled !== false && !hostDisabled,
       maskNavigator: merged.maskNavigator !== false,
-      maskWebGL: merged.maskWebGL !== false
+      maskScreen: merged.maskScreen !== false,
+      screenPreset: typeof merged.screenPreset === "string" ? merged.screenPreset : "1920x1080",
+      maskWebGL: merged.maskWebGL !== false,
+      maskFingerprint: merged.maskFingerprint !== false
     };
   }
 
@@ -52,7 +58,10 @@
     if (
       changes.enabled ||
       changes.maskNavigator ||
+      changes.maskScreen ||
+      changes.screenPreset ||
       changes.maskWebGL ||
+      changes.maskFingerprint ||
       changes.disabledHosts
     ) {
       syncFromStorage();
